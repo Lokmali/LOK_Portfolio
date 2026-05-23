@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 import { fileURLToPath } from 'url';
 import path, { dirname } from 'path';
 
+import cloudflare from "@astrojs/cloudflare";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -34,5 +36,7 @@ export default defineConfig({
 
   devToolbar: {
     enabled: false
-  }
+  },
+
+  adapter: cloudflare()
 });
