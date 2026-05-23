@@ -8,54 +8,49 @@ const videos = await Astro.glob<{ default: any }>('/src/assets/works/*.mp4')
 // But it’s my site, and editing it in code is faster than setting up yet another headless something.
 // Sometimes "quick and dirty" wins. Don’t @ me.
 const info = {
-  Pen: {
-    title: 'CodePen',
-    site: 'https://codepen.io/wodniack',
-  },
   Dummy1: {
-    title: 'Dummy Project 1',
-    site: 'https://wodniack.dev',
+    title: 'Sample Project 1',
+    site: '#work',
   },
   Dummy2: {
-    title: 'Dummy Project 2',
-    site: 'https://wodniack.dev',
+    title: 'Sample Project 2',
+    site: '#work',
   },
   Dummy3: {
-    title: 'Dummy Project 3',
-    site: 'https://wodniack.dev',
+    title: 'Sample Project 3',
+    site: '#work',
   },
   Dummy4: {
-    title: 'Dummy Project 4',
-    site: 'https://wodniack.dev',
+    title: 'Sample Project 4',
+    site: '#work',
   },
   Dummy5: {
-    title: 'Dummy Project 5',
-    site: 'https://wodniack.dev',
+    title: 'Sample Project 5',
+    site: '#work',
   },
   Dummy6: {
-    title: 'Dummy Project 6',
-    site: 'https://wodniack.dev',
+    title: 'Sample Project 6',
+    site: '#work',
   },
   Dummy7: {
-    title: 'Dummy Project 7',
-    site: 'https://wodniack.dev',
+    title: 'Sample Project 7',
+    site: '#work',
   },
   Dummy8: {
-    title: 'Dummy Project 8',
-    site: 'https://wodniack.dev',
+    title: 'Sample Project 8',
+    site: '#work',
   },
   Dummy9: {
-    title: 'Dummy Project 9',
-    site: 'https://wodniack.dev',
+    title: 'Sample Project 9',
+    site: '#work',
   },
   Dummy10: {
-    title: 'Dummy Project 10',
-    site: 'https://wodniack.dev',
+    title: 'Sample Project 10',
+    site: '#work',
   }
 }
 
 let projects = []
-let pens = []
 
 // I removed the video loops to keep the repo lightweight.
 // But this is where I normally fetch and assign the videos for each project in the portfolio.
@@ -68,19 +63,11 @@ videos.forEach((video, index) => {
   const caption = project.title
   const site = project.site
 
-  if (key === 'Pen') {
-    pens.push({
-      caption,
-      site,
-      src,
-    })
-  } else {
-    projects.push({
-      caption,
-      site,
-      src,
-    })
-  }
+  projects.push({
+    caption,
+    site,
+    src,
+  })
 })
 
 // Create dummy projects with 3 videos each
@@ -113,19 +100,7 @@ function shuffle(array) {
 
 shuffle(projects)
 
-// Add pens in between projects regularly
-let works = []
-let chunkSize = Math.floor(projects.length / pens.length)
-let i = 0
-let j = 0
-while (i < projects.length) {
-  works.push(projects[i])
-  if (j < pens.length && (i + 1) % chunkSize === 0) {
-    works.push(pens[j])
-    j++
-  }
-  i++
-}
+let works = projects
 ---
 
 <section id="work" class="s-work" data-intersect>

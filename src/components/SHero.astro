@@ -9,11 +9,11 @@ import ASeparator from './ASeparator.astro'
   <div class="s__content js-content">
     <ASeparator
       class="s__separator js-separator"
-      strings={['Ant', 'oi', 'ne', 'Wo', 'dn', 'ia', 'ck']}
+      strings={['Lo', 'ke', 'sh', 'Ma', 'ha', 'jan']}
     />
 
     <h1 class="s__title">
-      <span class="s__title__word js-word">Creative</span>
+      <span class="s__title__word js-word">Software</span>
       <img
         class="s__title__asset js-star"
         src="/images/asset-star.svg"
@@ -319,7 +319,7 @@ import ASeparator from './ASeparator.astro'
 
     min-height: calc(100svh - 7rem - 1px);
 
-    opacity: 0;
+    opacity: 1;
     overflow: hidden;
 
     @include mq(phone) {
@@ -380,39 +380,40 @@ import ASeparator from './ASeparator.astro'
       @include flex(row, center, center);
 
       margin: 0;
-      padding: 1.5rem 0;
+      padding: 1.5rem 1rem;
 
       cursor: default;
 
-      font: 700 min(15vw, 18.5rem) / 0.8 font-family(bigger);
+      gap: clamp(0.5rem, 2vw, 2rem);
+      font: 700 clamp(2.25rem, 8.75vw, 9.5rem) / 0.8 font-family(bigger);
       text-transform: uppercase;
+      white-space: nowrap;
 
       @include mq(desktop-xs) {
-        font-size: 14vw;
+        font-size: 8.25vw;
       }
 
       @include mq(tablet) {
-        padding: 1rem;
-        // align-items: center;
-        flex-wrap: wrap;
-        justify-content: flex-start;
+        padding: 1rem 0.75rem;
+        justify-content: center;
 
-        font-size: calc(31vw - 1rem);
+        font-size: 8vw;
       }
 
       @include mq(phone) {
-        font-size: calc(31vw - 0.75rem);
+        font-size: 7.6vw;
       }
 
       &__word {
         position: relative;
 
         display: block;
+        flex: 0 1 auto;
         height: 0.7975em;
+        min-width: 0;
 
         @include mq(tablet) {
-          flex-grow: 0;
-          flex-shrink: 0;
+          flex-shrink: 1;
         }
 
         @include mq(phone) {
@@ -422,13 +423,13 @@ import ASeparator from './ASeparator.astro'
 
       &__asset {
         display: block;
-        margin: 0 2rem;
+        flex: 0 0 auto;
+        margin: 0;
+        width: clamp(1rem, 3vw, 3rem);
+        height: auto;
 
         @include mq(tablet) {
-          // display: none;
-          margin: 0 0 0 auto;
-          width: 0.375em;
-          height: auto;
+          width: 0.35em;
         }
       }
 
